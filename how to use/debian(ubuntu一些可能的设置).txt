@@ -1,0 +1,24 @@
+1.将时区修改为上海
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+2.更改dns
+echo "nameserver 8.8.8.8
+nameserver 8.8.4.4" > /etc/resolv.conf
+
+3.开机启动
+chmod +x /etc/rc.local
+vi /etc/rc.local
+
+然后在 exit 0 这一句代码（只有ubuntu/debian有这个 exit 0）的前面加上需要启动的代码。
+
+然后按 ESC键 退出vi编辑模式，然后输入 :wq 保存并退出该文件，就完成了。
+
+4.定时重启
+sudo crontab  -e 
+0 1 * * * /sbin/reboot
+sudo service cron restart
+
+5.更改端口
+vi /etc/ssh/sshd_config
+port: xxxx
+service ssh restart
