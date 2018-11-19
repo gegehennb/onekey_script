@@ -57,7 +57,7 @@ check_pid_client(){
 }
 Download_Server_Status_server(){
 	cd "/tmp"
-	wget -N --no-check-certificate "https://raw.githubusercontent.com/gegehennb/onekey_script/master/service/ServerStatus_master.zip"
+	wget -N --no-check-certificate "https://raw.githubusercontent.com/gegehennb/onekey_script/master/service/ServerStatus/ServerStatus_master.zip"
 	[[ ! -e "ServerStatus_master.zip" ]] && echo -e "${Error} ServerStatus 服务端下载失败 !" && exit 1
 	unzip ServerStatus_master.zip
 	rm -rf ServerStatus_master.zip
@@ -92,7 +92,7 @@ Download_Server_Status_server(){
 }
 Download_Server_Status_client(){
 	cd "/tmp"
-	wget -N --no-check-certificate "https://raw.githubusercontent.com/gegehennb/onekey_script/master/service/status-client.py"
+	wget -N --no-check-certificate "https://raw.githubusercontent.com/gegehennb/onekey_script/master/service/ServerStatus/clients/status-client.py"
 	[[ ! -e "status-client.py" ]] && echo -e "${Error} ServerStatus 客户端下载失败 !" && exit 1
 	cd "${file_1}"
 	[[ ! -e "${file}" ]] && mkdir "${file}"
@@ -119,14 +119,14 @@ Download_Server_Status_client(){
 }
 Service_Server_Status_server(){
 	if [[ ${release} = "centos" ]]; then
-		if ! wget --no-check-certificate "https://raw.githubusercontent.com/gegehennb/onekey_script/master/service/server_status_server_centos" -O /etc/init.d/status-server; then
+		if ! wget --no-check-certificate "https://raw.githubusercontent.com/gegehennb/onekey_script/master/service/ServerStatus/server_status_server_centos" -O /etc/init.d/status-server; then
 			echo -e "${Error} ServerStatus 服务端服务管理脚本下载失败 !" && exit 1
 		fi
 		chmod +x /etc/init.d/status-server
 		chkconfig --add status-server
 		chkconfig status-server on
 	else
-		if ! wget --no-check-certificate "https://raw.githubusercontent.com/gegehennb/onekey_script/master/service/server_status_server_debian" -O /etc/init.d/status-server; then
+		if ! wget --no-check-certificate "https://raw.githubusercontent.com/gegehennb/onekey_script/master/service/ServerStatus/server_status_server_debian" -O /etc/init.d/status-server; then
 			echo -e "${Error} ServerStatus 服务端服务管理脚本下载失败 !" && exit 1
 		fi
 		chmod +x /etc/init.d/status-server
@@ -136,14 +136,14 @@ Service_Server_Status_server(){
 }
 Service_Server_Status_client(){
 	if [[ ${release} = "centos" ]]; then
-		if ! wget --no-check-certificate "https://raw.githubusercontent.com/gegehennb/onekey_script/master/service/server_status_client_centos" -O /etc/init.d/status-client; then
+		if ! wget --no-check-certificate "https://raw.githubusercontent.com/gegehennb/onekey_script/master/service/ServerStatus/server_status_client_centos" -O /etc/init.d/status-client; then
 			echo -e "${Error} ServerStatus 客户端服务管理脚本下载失败 !" && exit 1
 		fi
 		chmod +x /etc/init.d/status-client
 		chkconfig --add status-client
 		chkconfig status-client on
 	else
-		if ! wget --no-check-certificate "https://raw.githubusercontent.com/gegehennb/onekey_script/master/service/server_status_client_debian" -O /etc/init.d/status-client; then
+		if ! wget --no-check-certificate "https://raw.githubusercontent.com/gegehennb/onekey_script/master/service/ServerStatus/server_status_client_debian" -O /etc/init.d/status-client; then
 			echo -e "${Error} ServerStatus 客户端服务管理脚本下载失败 !" && exit 1
 		fi
 		chmod +x /etc/init.d/status-client
