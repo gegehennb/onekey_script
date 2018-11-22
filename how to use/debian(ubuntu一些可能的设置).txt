@@ -1,24 +1,24 @@
-1.½«Ê±ÇøĞŞ¸ÄÎªÉÏº£
+1.å°†æ—¶åŒºä¿®æ”¹ä¸ºä¸Šæµ·
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-2.¸ü¸Ädns
-echo "nameserver 8.8.8.8
-nameserver 8.8.4.4" > /etc/resolv.conf
+2.æ›´æ”¹dns
+echo "nameserver 1.1.1.1
+nameserver 1.0.0.1" > /etc/resolv.conf
 
-3.¿ª»úÆô¶¯
+3.å¼€æœºå¯åŠ¨
 chmod +x /etc/rc.local
 vi /etc/rc.local
 
-È»ºóÔÚ exit 0 ÕâÒ»¾ä´úÂë£¨Ö»ÓĞubuntu/debianÓĞÕâ¸ö exit 0£©µÄÇ°Ãæ¼ÓÉÏĞèÒªÆô¶¯µÄ´úÂë¡£
+ç„¶ååœ¨ exit 0 è¿™ä¸€å¥ä»£ç ï¼ˆåªæœ‰ubuntu/debianæœ‰è¿™ä¸ª exit 0ï¼‰çš„å‰é¢åŠ ä¸Šéœ€è¦å¯åŠ¨çš„ä»£ç ã€‚
 
-È»ºó°´ ESC¼ü ÍË³övi±à¼­Ä£Ê½£¬È»ºóÊäÈë :wq ±£´æ²¢ÍË³ö¸ÃÎÄ¼ş£¬¾ÍÍê³ÉÁË¡£
+ç„¶åæŒ‰ ESCé”® é€€å‡ºviç¼–è¾‘æ¨¡å¼ï¼Œç„¶åè¾“å…¥ :wq ä¿å­˜å¹¶é€€å‡ºè¯¥æ–‡ä»¶ï¼Œå°±å®Œæˆäº†ã€‚
 
-4.¶¨Ê±ÖØÆô
-sudo crontab  -e 
-0 1 * * * /sbin/reboot
-sudo service cron restart
+4.å®šæ—¶é‡å¯
+crontab  -e 
+0 3 * * * /sbin/reboot
+service cron restart
 
-5.¸ü¸Ä¶Ë¿Ú
+5.æ›´æ”¹ç«¯å£
 vi /etc/ssh/sshd_config
 port: xxxx
 service ssh restart
