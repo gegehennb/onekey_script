@@ -17,7 +17,10 @@ crontab  -e
 0 3 * * * /sbin/reboot
 service cron restart
 
-5.更改端口
+5.更改ssh端口
 vi /etc/ssh/sshd_config
 port: xxxx
 service ssh restart
+
+6.查看端口占用
+netstat -lntp
