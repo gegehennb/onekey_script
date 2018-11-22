@@ -10,7 +10,6 @@ chmod +x /etc/rc.local
 vi /etc/rc.local
 
 然后在 exit 0 这一句代码（只有ubuntu/debian有这个 exit 0）的前面加上需要启动的代码。
-
 然后按 ESC键 退出vi编辑模式，然后输入 :wq 保存并退出该文件，就完成了。
 
 4.定时重启
