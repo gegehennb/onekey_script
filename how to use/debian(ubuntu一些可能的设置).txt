@@ -17,7 +17,7 @@ crontab  -e
 0 3 * * * /sbin/reboot
 service cron restart
 
-5.更改ssh端口
+5.修改ssh端口
 vi /etc/ssh/sshd_config
 port: xxxx
 service ssh restart
